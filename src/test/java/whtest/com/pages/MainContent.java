@@ -38,7 +38,7 @@ public class MainContent extends Actions {
     //Here I am passing the dynamic Index to the locator, Also passing the tabname to know which tab I need to click
     //Clicking on the tab to check to open the events underneath.
     // Could be improved by checking whether it is already expanded
-    public void selectTabMain(String tabName) throws Exception{
+    public void selectTabMain(String tabName){
         setTabIndex(getHMainTabIndex(tabName));
         By locator = By.cssSelector(".matches>ul>li:nth-of-type(2)>ul>li:nth-of-type("+ getTabIndex() +")");
         click(locator);
