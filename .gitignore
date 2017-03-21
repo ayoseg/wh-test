@@ -1,0 +1,8 @@
+*.iml
+**/*.iml
+.DS_Store
+.idea
+.png
+.html
+cucumber_report.json
+target
