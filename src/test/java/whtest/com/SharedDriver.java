@@ -50,13 +50,12 @@ public class SharedDriver extends EventFiringWebDriver {
 
             setChromeDriverInClassPath();
 
-            String browserType = System.getProperty("browser").toUpperCase();
-            if (browserType != null) {
-                initiateRealDriver(BrowserDriver.valueOf(browserType.toUpperCase()));
-                System.out.println("Using " + browserType.toUpperCase());
-            } else {
+            if (System.getProperty("browser") == null) {
                 initiateRealDriver(CHROME);
                 System.out.println ("Using Default Chrome Browser");
+            } else {
+                initiateRealDriver(BrowserDriver.valueOf(System.getProperty("browser").toUpperCase().toUpperCase()));
+                System.out.println("Using " + System.getProperty("browser").toUpperCase());
             }
 
             customiseRealDriver();

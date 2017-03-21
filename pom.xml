@@ -76,6 +76,7 @@
                 <configuration>
                     <threadCount>10</threadCount>
                     <parallel>methods</parallel>
+                    <skipTests>${skipTests}</skipTests>
                     <includes>
                     <include>**/*Test.java</include>
                     </includes>

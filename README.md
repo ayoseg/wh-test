@@ -4,7 +4,7 @@ Clone this test project and navigate to the root directory of wh-test
 
 
 - To clean, setup and install dependencies using the command listed
-    - $ mvn clean install
+    - $ mvn clean install -DskipTests=true
 
 - To run the tests
     - $ mvn -Dbrowser=chrome test
@@ -22,6 +22,6 @@ Follow the steps below to run the test suite
 ``` bash
   $ git clone https://github.com/ayoseg/wh-test.git
   $ cd wh-test
-  $ mvn clean install
+  $ mvn clean install -DskipTests=true
   $ mvn -Dbrowser=chrome test
 ```
