@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 
 
 import org.openqa.selenium.Capabilities;
+import static whtest.com.SharedDriver.BrowserDriver.CHROME;
 
 
 /**
@@ -46,8 +47,18 @@ public class SharedDriver extends EventFiringWebDriver {
 
     static {
         try {
+
             setChromeDriverInClassPath();
-            initiateRealDriver(BrowserDriver.valueOf(System.getProperty("browser").toUpperCase()));
+
+            String browserType = System.getProperty("browser").toUpperCase();
+            if (browserType != null) {
+                initiateRealDriver(BrowserDriver.valueOf(browserType.toUpperCase()));
+                System.out.println("Using " + browserType.toUpperCase());
+            } else {
+                initiateRealDriver(CHROME);
+                System.out.println ("Using Default Chrome Browser");
+            }
+
             customiseRealDriver();
             Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
         } catch (Exception e) {
